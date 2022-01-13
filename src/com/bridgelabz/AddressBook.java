@@ -3,10 +3,10 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class AddressBook {
-    //Created Scanner class object
+    //Created Scanner class object.
     Scanner sc = new Scanner(System.in);
 
-    //ArrayList created for storing contacts
+    //ArrayList created for storing contacts.
     ArrayList<Contacts>list = new ArrayList<Contacts>();
 
     public void addContacts() {
