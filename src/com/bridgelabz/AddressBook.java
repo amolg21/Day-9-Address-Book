@@ -1,35 +1,104 @@
 package com.bridgelabz;
-
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class AddressBook {
-    private Scanner scanner =new Scanner(System.in);
+    //Created Scanner class object
+    Scanner sc = new Scanner(System.in);
 
-    public Contacts addContacts () {
+    //ArrayList created for storing contacts
+    ArrayList<Contacts>list = new ArrayList<Contacts>();
 
-        Contacts con = new Contacts();
+    public void addContacts() {
 
-        System.out.println("Enter FirstName ");
-        String firstName=scanner.nextLine();
-        System.out.println("Enter LastName ");
-        String lastName=scanner.nextLine();
-        System.out.println("Enter Address ");
-        String address=scanner.nextLine();
-        System.out.println("Enter City ");
-        String city=scanner.nextLine();
-        System.out.println("Enter State ");
-        String state=scanner.nextLine();
-        System.out.println("Enter Zip Code ");
-        String zip=scanner.nextLine();
-        System.out.println("Enter Mobile No ");
-        String mobileNo=scanner.nextLine();
-        System.out.println("Enter email ");
-        String email=scanner.nextLine();
-
-        return con;
+        Contacts contacts = new Contacts();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Contact details");
+        System.out.println("Enter the First Name :");
+        contacts.setFirstName(sc.next());
+        System.out.println("Enter the Last Name :");
+        contacts.setLastName(sc.next());
+        System.out.println("Enter the Address :");
+        contacts.setAddress(sc.next());
+        System.out.println("Enter the City :");
+        contacts.setCity(sc.next());
+        System.out.println("Enter the State :");
+        contacts.setState(sc.next());
+        System.out.println("Enter the Zip Code :");
+        contacts.setZip(sc.next());
+        System.out.println("Enter the Phone Number :");
+        contacts.setMobileNo(sc.next());
+        System.out.println("Enter the EMail ID :");
+        contacts.setEmail(sc.next());
+        list.add(contacts);
     }
 
-    public static void main(String[] args) {
-        
+    //Method to Show the Contact Details
+    public void showContacts() {
+        for (Contacts contacts : list) {
+            System.out.println("Contact Details -");
+            System.out.println("First Name : " + contacts.getFirstName());
+            System.out.println("Last Name : " + contacts.getLastName());
+            System.out.println("Address : " + contacts.getAddress());
+            System.out.println("City : " + contacts.getCity());
+            System.out.println("State : " + contacts.getState());
+            System.out.println("Zip Code : " + contacts.getZip());
+            System.out.println("Phone Number : " + contacts.getMobileNo());
+            System.out.println("EMail ID : " + contacts.getEmail());
+        }
+
+    }
+
+    public void editContact() {
+        //  Matching Last name to find that contact which is to be edited.
+        System.out.println("Enter the Last name");
+        String lastName = sc.next();
+
+        boolean isAvailable = false;
+        for (Contacts contacts : list) {
+            if (lastName.equalsIgnoreCase(contacts.getFirstName())) {
+                isAvailable = true;
+                System.out.println("Enter the Last Name :");
+                contacts.setLastName(sc.next());
+                System.out.println("Enter the Address :");
+                contacts.setAddress(sc.next());
+                System.out.println("Enter the City :");
+                contacts.setCity(sc.next());
+                System.out.println("Enter the State :");
+                contacts.setState(sc.next());
+                System.out.println("Enter the Zip Code :");
+                contacts.setZip(sc.next());
+                System.out.println("Enter the Phone Number :");
+                contacts.setMobileNo(sc.next());
+                System.out.println("Enter the EMail ID :");
+                contacts.setEmail(sc.next());
+                break;
+            }
+        }
+        if (!isAvailable) {
+            System.out.println("Contact Not found. Try again. ");
+        }
+    }
+
+    public void deleteContact() {
+
+
+        System.out.println("Enter the first name");
+        String lastName = sc.next();
+
+        boolean isAvailable = false;
+        for (Contacts contacts : list) {
+            if (lastName.equalsIgnoreCase(contacts.getFirstName())) {
+                isAvailable = true;
+                list.remove(contacts);
+                System.out.println("Contact Deleted.");
+                break;
+            }
+            if (!isAvailable) {
+                System.out.println("Contact Number Not found.");
+            }
+
+        }
+
     }
 }
