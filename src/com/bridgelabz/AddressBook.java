@@ -48,7 +48,7 @@ public class AddressBook {
         }
 
     }
-
+    // You can edit the contact.
     public void editContact() {
         //  Matching Last name to find that contact which is to be edited.
         System.out.println("Enter the Last name");
@@ -82,7 +82,7 @@ public class AddressBook {
 
     public void deleteContact() {
 
-
+        // You can delete the contact.
         System.out.println("Enter the first name");
         String lastName = sc.next();
 
