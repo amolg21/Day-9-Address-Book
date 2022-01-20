@@ -78,7 +78,10 @@ public class AddressBook {
         if (!isAvailable) {
             System.out.println("Contact Not found. Try again. ");
         }
+
     }
+
+
 
     public void deleteContact() {
 
@@ -100,5 +103,35 @@ public class AddressBook {
 
         }
 
+
     }
+    
+
+    public void contactOptions(){
+        int choice;
+        do {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Welcome to Address Book Program");
+            System.out.println("Kindly Enter choice \n 1. Add new Contact \n 2. Edit Contact details \n 3. Display details  \n 4 Delete Contact \n 5. Quit");
+            choice = scan.nextInt();
+            switch (choice) {
+                case 1:
+                    addContacts();
+                    break;
+                case 2:
+                    editContact();
+                    break;
+                case 3:
+                    showContacts();
+                    break;
+                case 4:
+                    deleteContact();
+                    break;
+                case 5:
+                    System.out.println("Thank you.");
+                    break;
+            }
+        }while (choice != 5);
+    }
+
 }
